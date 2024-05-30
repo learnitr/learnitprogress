@@ -3,7 +3,7 @@ pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   learnitprogress: learnitprogress.html
-last_built: 2024-05-30T13:40Z
+last_built: 2024-05-30T14:20Z
 urls:
   reference: https://learnitr.github.io/learnitprogress/reference
   article: https://learnitr.github.io/learnitprogress/articles
