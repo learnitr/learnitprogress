@@ -1,0 +1,25 @@
+---
+title: "learnitprogress - Report Student Progress in 'LearnIt::R' Courses"
+author: "Philippe Grosjean (phgrosjean@sciviews.org)"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{learnitprogress - Report Student Progress in 'LearnIt::R' Courses}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(learnitprogress)
+```
+
+TODO...
