@@ -7,7 +7,7 @@
 [![CRAN Status](https://www.r-pkg.org/badges/version/learnitprogress)](https://cran.r-project.org/package=learnitprogress)
 [![r-universe status](https://learnitr.r-universe.dev/badges/learnitprogress)](https://learnitr.r-universe.dev/learnitprogress)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Lifecycle stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Lifecycle experimental](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 <!-- badges: end -->
 
