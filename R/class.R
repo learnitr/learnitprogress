@@ -83,9 +83,9 @@ class_aa <- function(aa, url = getOption("learnitr.lrs_url"), as.json = FALSE,
   if (isTRUE(as.json)) {
     switch(aa,
       sdd1mq1 = ,
-      sdd1cq1 = '{ "$regex": "^A0[1-6][^A]", "$options": "" }',
+      sdd1cq1 = '{ "$regex": "^A0[1-5][^A]", "$options": "" }',
       sdd1mq2 = ,
-      sdd1cq2 = '{ "$regex": "^A(0[7-9])|(1[0-2])[^A]", "$options": "" }',
+      sdd1cq2 = '{ "$regex": "^A(0[6-9])|(10)[^A]", "$options": "" }',
       sdd1mq3 = ,
       sdd1cq3 = '{ "$regex": "^A(0[1-9])|(1[0-2])[^A]", "$options": "" }',
       sdd2mq1 = ,
@@ -95,17 +95,17 @@ class_aa <- function(aa, url = getOption("learnitr.lrs_url"), as.json = FALSE,
       #sdd2cq3 = '{ "$regex": "^B(09)|(1[0-2])[^A]", "$options": "" }',
       sdd2mq3 = ,
       sdd2cq3 = '{ "$regex": "^B(0[1-9])|(10)[^A]", "$options": "" }',
-      sdd3mq1 = '{ "$regex": "^C0[1-6][^A]", "$options": "" }',
-      sdd3mq3 = '{ "$regex": "^C0[1-6][^A]", "$options": "" }',
-      sdd4mq1 = '{ "$regex": "^D0[1-6][^A]", "$options": "" }',
+      sdd3mq1 = '{ "$regex": "^C0[1-5][^A]", "$options": "" }',
+      sdd3mq3 = '{ "$regex": "^C0[1-5][^A]", "$options": "" }',
+      sdd4mq1 = '{ "$regex": "^D0[1-5][^A]", "$options": "" }',
       #sdd5mq1 = '{ "$regex": "^E0[1-4][^A]", "$options": "" }',
       stop("Not implemented for this aa"))
   } else {
     switch(aa,
       sdd1mq1 = ,
-      sdd1cq1 = "^A0[1-6][^A]",
+      sdd1cq1 = "^A0[1-5][^A]",
       sdd1mq2 = ,
-      sdd1cq2 = "^A(0[7-9])|(1[0-2])[^A]",
+      sdd1cq2 = "^A(0[6-9])|(10)[^A]",
       sdd1mq3 = ,
       sdd1cq3 = "^A(0[1-9])|(1[0-2])[^A]",
       sdd2mq1 = ,
@@ -114,9 +114,9 @@ class_aa <- function(aa, url = getOption("learnitr.lrs_url"), as.json = FALSE,
       sdd2cq2 = "^B(0[6-9])|(10)[^A]",
       sdd2mq3 = ,
       sdd2cq3 = "^B(0[1-9])|(10)[^A]",
-      sdd3mq1 = "^C0[1-6][^A]",
-      sdd3mq3 = "^C0[1-6][^A]",
-      sdd4mq1 = "^D0[1-6][^A]",
+      sdd3mq1 = "^C0[1-5][^A]",
+      sdd3mq3 = "^C0[1-5][^A]",
+      sdd4mq1 = "^D0[1-5][^A]",
       #sdd5mq1 = "^E0[1-4][^A]",
       stop("Not implemented for this aa"))
   }
@@ -127,7 +127,7 @@ class_aa <- function(aa, url = getOption("learnitr.lrs_url"), as.json = FALSE,
 #' @rdname class_logins
 #' @param email The email of the student
 user_login <- function(email, url = getOption("learnitr.lrs_url")) {
-  # Make xsure email is in lowercase
+  # Make sure email is in lowercase
   email <- tolower(email)
   # Get the login associated with a given email address
   # In case we have several login, return the most recent one

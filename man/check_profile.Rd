@@ -34,7 +34,9 @@ A character vector with the list of parameters
 A list with the required parameters
 }
 \description{
-# Get the list of required parameters to identify a student from the URL.
+Check if a GitHub user profile exists by checking its homepage.
+
+Get the list of required parameters to identify a student from the URL.
 }
 \details{
 In Moodle, the URL variables must be set as follows:

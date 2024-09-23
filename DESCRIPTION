@@ -1,6 +1,6 @@
 Package: learnitprogress
 Type: Package
-Version: 0.9.0
+Version: 0.10.0
 Title: Report Student Progress in 'LearnIt::R' Courses
 Description: A Shiny app that connects to you LRS ("Learning Record Store"
   database, as created and managed by the 'learnitdown' package) and displays a
@@ -33,7 +33,7 @@ License: MIT + file LICENSE
 URL: https://github.com/learnitr/learnitprogress, https://learnitr.github.io/learnitprogress/
 BugReports: https://github.com/learnitr/learnitprogress/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US

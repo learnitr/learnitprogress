@@ -2,6 +2,9 @@
 
 #' Check student profile to identify it from URL's parameters
 #'
+#' @description
+#' Check if a GitHub user profile exists by checking its homepage.
+#'
 #' @param profile Profile data gathered from the LRS
 #' @param url_profile Profile data gathered from the URL
 #'
@@ -47,7 +50,8 @@ check_profile <- function(profile, url_profile) {
 
 #' URL parameters used to identify a student
 #'
-#' # Get the list of required parameters to identify a student from the URL.
+#' @description
+#' Get the list of required parameters to identify a student from the URL.
 #'
 #' @return A character vector with the list of parameters
 #' @details

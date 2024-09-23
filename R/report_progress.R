@@ -39,7 +39,7 @@ report_progress <- function(email, second.course = FALSE, course = NULL,
 
   # In user iemail, I have a lowercase version, but I need -
   # email instead
-  user$iemail <- user$email
+  #No! user$iemail <- user$email
   encode_param <- function(param, data = user) {
     value <- URLencode(as.character(data[[param]]), reserved = TRUE)
     paste0(param, "=", value)
@@ -82,6 +82,7 @@ report_progress <- function(email, second.course = FALSE, course = NULL,
     browseURL(url)
   invisible(url)
 }
+
 #' @export
 #' @rdname report_progress
 run_progress_report <- function(port = 3260) {

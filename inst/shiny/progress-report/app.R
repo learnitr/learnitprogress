@@ -1,5 +1,5 @@
 # Individual student's progress report for BioDataScience-Course at UMONS
-# Version 3.0.0, Copyright (c), 2021-2024, Philippe Grosjean & Guyliann Engels
+# Version 3.1.0, Copyright (c), 2021-2024, Philippe Grosjean & Guyliann Engels
 #
 # TODO:
 # - Rework to allow using outside of SDD context
@@ -15,6 +15,7 @@
 #date_query_def <- '"date": { "$gt": "2022-09-18 00:00:00.000000" }, '
 
 library(shiny)
+suppressMessages(library(DT))
 #library(shinyjs)
 library(shinybusy)
 library(shinythemes)
@@ -22,7 +23,7 @@ library(shinythemes)
 library(RCurl)
 library(mongolite)
 #library(PKI)
-library(dplyr)
+suppressMessages(library(dplyr))
 library(ggplot2)
 library(cowplot)
 library(fs)
@@ -37,13 +38,9 @@ options(learnitr.lrs_url = getOption("learnitr.lrs_url",
   default = Sys.getenv("LEARNITR_LRS_URL",
     unset = "mongodb://127.0.0.1/sdd")))
 
-mdb_h5p <- mongolite::mongo('h5p', url = getOption("learnitr.lrs_url"))
+# Test connection to the database
+mdb_h5p <- mongolite::mongo('events', url = getOption("learnitr.lrs_url"))
 mdb_h5p$disconnect()
-mdb_learnr <- mongolite::mongo('learnr', url = getOption("learnitr.lrs_url"))
-mdb_learnr$disconnect()
-mdb_shiny <- mongolite::mongo('shiny', url = getOption("learnitr.lrs_url"))
-mdb_shiny$disconnect()
-
 
 # The Shiny app -----------------------------------------------------------
 
@@ -87,7 +84,7 @@ ui <- fluidPage(theme = shinytheme("lumen"),
         h4("Grilles de correction des projets GitHub"),
         htmlOutput("gridMessage"), # Message specific for the correction grids
         selectInput("gridSelect", " ", c()),
-        dataTableOutput("gridTable"),
+        DTOutput("gridTable"),
 
         tags$a("Page d'aide",
           href = "https://wp.sciviews.org/progress-report")
@@ -165,7 +162,8 @@ server <- function(input, output, session) {
 
          } else {# Our app will be in state #3, create the progress report now
            user$login <- user_profile$login
-           user$email <- user_profile$email
+           #user$email <- user_profile$email
+           user$email <- user_data['iemail']
 
            # Get data for the learnrs and the Github activity
            if (is.null(user$course)) {
@@ -426,7 +424,7 @@ server <- function(input, output, session) {
     } else ""
   })
 
-  output$gridTable <- renderDataTable({
+  output$gridTable <- renderDT({
     grid <- input$gridSelect
     if (!is.null(grid) && !is.na(grid) && grid != "") {
       tab <- try(read.csv(grid))

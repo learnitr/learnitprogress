@@ -97,17 +97,18 @@ shiny_prog <- function(user_login, class_logins, class_aa, class_data = NULL,
 # Get Learnr data for a whole class
 learnr_class_prog <- function(class_logins, class_aa,
     url = getOption("learnitr.lrs_url")) {
-  mdb_learnr <- try(mongolite::mongo("learnr", url = url), silent = TRUE)
+  mdb_learnr <- try(mongolite::mongo("events", url = url), silent = TRUE)
   if (inherits(mdb_learnr, "try-error"))
     stop("Error: impossible to connect to the learnr database")
 
-  if (!mdb_learnr$count(paste0('{ "login": ', class_logins, ',
+  if (!mdb_learnr$count(paste0('{ "type" : "learnr", "login": ', class_logins, ',
     "app": ', class_aa, ', "max": { "$gt": 0 },
     "verb": { "$in": ["answered", "submitted"] } }')))
     return(NULL)
 
   part1 <- mdb_learnr$aggregate(paste0('[ {
   "$match": {
+    "type" : "learnr",
     "login": ', class_logins, ',
     "app": ', class_aa, ',
     "max": { "$gt": 0 },
@@ -139,6 +140,7 @@ learnr_class_prog <- function(class_logins, class_aa,
   # raw_score_avg
   part2 <- mdb_learnr$aggregate(paste0('[ {
   "$match": {
+    "type" : "learnr",
     "login": ', class_logins, ',
     "app": ', class_aa, ',
     "max": { "$gt": 0 },
@@ -177,17 +179,18 @@ learnr_class_prog <- function(class_logins, class_aa,
 # Get learnrs progression for one student
 learnr_user_prog <- function(user_login, class_aa,
     url = getOption("learnitr.lrs_url")) {
-  mdb_learnr <- try(mongolite::mongo("learnr", url = url), silent = TRUE)
+  mdb_learnr <- try(mongolite::mongo("events", url = url), silent = TRUE)
   if (inherits(mdb_learnr, "try-error"))
     stop("Error: impossible to connect to the learnr database")
 
-  if (!mdb_learnr$count(paste0('{ "login": "', user_login, '",
+  if (!mdb_learnr$count(paste0('{ "type" : "learnr", "login": "', user_login, '",
     "app": ', class_aa, ', "max": { "$gt": 0 },
     "verb": { "$in": ["answered", "submitted"] } }')))
     return(NULL)
 
   mdb_learnr$aggregate(paste0('[ {
   "$match": {
+    "type" : "learnr",
     "login": "', user_login, '",
     "app": ', class_aa, ',
     "max": { "$gt": 0 },
@@ -218,16 +221,17 @@ learnr_user_prog <- function(user_login, class_aa,
 # Get H5P data for a whole class
 h5p_class_prog <- function(class_logins, class_aa,
     url = getOption("learnitr.lrs_url")) {
-  mdb_h5p <- try(mongolite::mongo("h5p", url = url), silent = TRUE)
+  mdb_h5p <- try(mongolite::mongo("events", url = url), silent = TRUE)
   if (inherits(mdb_h5p, "try-error"))
     stop("Error: impossible to connect to the H5P database")
 
-  if (!mdb_h5p$count(paste0('{ "login": ', class_logins, ',
+  if (!mdb_h5p$count(paste0('{ "type" : "h5p", "login": ', class_logins, ',
     "app": ', class_aa, ' }')))
     return(NULL)
 
   part1 <- mdb_h5p$aggregate(paste0('[ {
   "$match": {
+    "type" : "h5p",
     "login": ', class_logins, ',
     "app": ', class_aa, '
   }
@@ -253,6 +257,7 @@ h5p_class_prog <- function(class_logins, class_aa,
 
   part2 <- mdb_h5p$aggregate(paste0('[ {
   "$match": {
+    "type" : "h5p",
     "login": ', class_logins, ',
     "app": ', class_aa, ',
     "verb": "answered",
@@ -306,16 +311,17 @@ h5p_class_prog <- function(class_logins, class_aa,
 # Get progression in H5P exercises for one student
 h5p_user_prog <- function(user_login, class_aa,
     url = getOption("learnitr.lrs_url")) {
-  mdb_h5p <- try(mongolite::mongo("h5p", url = url), silent = TRUE)
+  mdb_h5p <- try(mongolite::mongo("events", url = url), silent = TRUE)
   if (inherits(mdb_h5p, "try-error"))
     stop("Error: impossible to connect to the H5P database")
 
-  if (!mdb_h5p$count(paste0('{ "login": "', user_login, '",
+  if (!mdb_h5p$count(paste0('{ "type" : "h5p", "login": "', user_login, '",
     "app": ', class_aa, ' }')))
     return(NULL)
 
   part1 <- mdb_h5p$aggregate(paste0('[ {
   "$match": {
+    "type" : "h5p",
     "login": "', user_login, '",
     "app": ', class_aa, '
   }
@@ -334,7 +340,7 @@ h5p_user_prog <- function(user_login, class_aa,
   }
 } ]'))
 
-  if (!mdb_h5p$count(paste0('{ "login": "', user_login, '",
+  if (!mdb_h5p$count(paste0('{ "type" : "h5p", "login": "', user_login, '",
     "app": ', class_aa, ', "verb": "answered", "max": { "$gt": 0 } }'))) {
     # Fake data because the student did not answered to anything yet
     n <- nrow(part1)
@@ -343,6 +349,7 @@ h5p_user_prog <- function(user_login, class_aa,
   } else {
     part2 <- mdb_h5p$aggregate(paste0('[ {
   "$match": {
+    "type" : "h5p",
     "login": "', user_login, '",
     "app": ', class_aa, ',
     "verb": "answered",
@@ -389,7 +396,7 @@ h5p_user_prog <- function(user_login, class_aa,
 # Get Shiny apps data for a whole class
 shiny_class_prog <- function(class_logins, class_aa,
     url = getOption("learnitr.lrs_url")) {
-  mdb_shiny <- try(mongolite::mongo("shiny", url = url), silent = TRUE)
+  mdb_shiny <- try(mongolite::mongo("events", url = url), silent = TRUE)
   if (inherits(mdb_shiny, "try-error"))
     stop("Error: impossible to connect to the shiny database")
 
@@ -398,12 +405,13 @@ shiny_class_prog <- function(class_logins, class_aa,
   #  "$cond": [ { "$in": ["$verb", ["evaluated"] ] }, "$max", null ]
   #} },
 
-  if (!mdb_shiny$count(paste0('{ "login": ', class_logins, ',
+  if (!mdb_shiny$count(paste0('{ "type" : "shiny", "login": ', class_logins, ',
     "app": ', class_aa, ' }')))
     return(NULL)
 
   mdb_shiny$aggregate(paste0('[ {
   "$match": {
+    "type" : "shiny",
     "login": ', class_logins, ',
     "app": ', class_aa, '
   }
@@ -432,16 +440,17 @@ shiny_class_prog <- function(class_logins, class_aa,
 # Get the progression in Shiny apps for one student
 shiny_user_prog <- function(user_login, class_aa,
     url = getOption("learnitr.lrs_url")) {
-  mdb_shiny <- try(mongolite::mongo("shiny", url = url), silent = TRUE)
+  mdb_shiny <- try(mongolite::mongo("events", url = url), silent = TRUE)
   if (inherits(mdb_shiny, "try-error"))
     stop("Error: impossible to connect to the shiny database")
 
-  if (!mdb_shiny$count(paste0('{ "login": "', user_login, '",
+  if (!mdb_shiny$count(paste0('{ "type" : "shiny", "login": "', user_login, '",
     "app": ', class_aa, ' }')))
     return(NULL)
 
   mdb_shiny$aggregate(paste0('[ {
   "$match": {
+    "type" : "shiny",
     "login": "', user_login, '",
     "app": ', class_aa, '
   }
