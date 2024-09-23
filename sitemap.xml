@@ -1,60 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/404.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/TODO.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/articles/learnitprogress.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/index.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/check_profile.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/class_logins.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/get_data.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/learnitprogress-package.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/learnr_prog.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/plot_grade.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/plot_progression.html</loc>
-  </url>
-  <url>
-    <loc>https://learnitr.github.io/learnitprogress/reference/report_progress.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://learnitr.github.io/learnitprogress/404.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/LICENSE-text.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/LICENSE.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/TODO.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/articles/index.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/articles/learnitprogress.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/authors.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/index.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/news/index.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/check_profile.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/class_logins.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/get_data.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/index.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/learnitprogress-package.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/learnr_prog.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/plot_grade.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/plot_progression.html</loc></url>
+<url><loc>https://learnitr.github.io/learnitprogress/reference/report_progress.html</loc></url>
 </urlset>
+
