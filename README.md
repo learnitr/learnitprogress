@@ -24,15 +24,8 @@ intended for students to track their progress in the course.
 
 ## Installation
 
-(Not yet! The latest stable version of {learnitprogress} can simply be
-installed from [CRAN](http://cran.r-project.org):)
-
-``` r
-install.packages("learnitprogress")
-```
-
-You can also install the latest development version. Make sure you have
-the {remotes} R package installed:
+You can install the latest development version. Make sure you have the
+{remotes} R package installed:
 
 ``` r
 install.packages("remotes")
