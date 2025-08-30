@@ -4,8 +4,10 @@
 \name{learnitprogress-package}
 \alias{learnitprogress}
 \alias{learnitprogress-package}
-\title{learnitprogress: Report Student Progress in 'LearnIt::R' Courses}
+\title{learnitprogress: Report Student Progress in 'learnitr' Courses}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 A Shiny app that connects to you LRS ("Learning Record Store" database, as created and managed by the 'learnitdown' package) and displays a report showing the completion of exercices and projects. This report is intended for students to track their progress in the course.
 }
 \details{
@@ -21,6 +23,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/learnitr/learnitprogress}
   \item \url{https://learnitr.github.io/learnitprogress/}
+  \item \url{https://learnitr.r-universe.dev/learnitprogress}
   \item Report bugs at \url{https://github.com/learnitr/learnitprogress/issues}
 }
 

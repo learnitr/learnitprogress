@@ -4,4 +4,6 @@
 
 -   Adapt the code to work also outside of SDD
 
-- English messages + translations (French...)
+-   English messages + translations (French...)
+
+-   A vignette.
